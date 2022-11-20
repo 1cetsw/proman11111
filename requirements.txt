@@ -7,4 +7,4 @@ MarkupSafe
 psycopg2
 Werkzeug
 python-dotenv
-python
+python~=3.10.8
