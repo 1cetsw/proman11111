@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body style="background-color:#ccc;">
+<div class="login-box">
+    <h1><div class="login-header">Login</div></h1>
+    <div class="login-body">
+       <h1> <p>Please enter your username and password</p></h1>
+         <form class="form-group-head c" action="{{ url_for('login') }}" method="post">
+            <h3><label class="cols-sm-2 control-label">Username</label></h3>
+            <input type="text" class="form-control" name="username" placeholder="Username" id="username" required>
+            <h3><label class="cols-sm-2 control-label">Password</label></h3>
+            <input type="password" class="form-control" name="password" placeholder="Password" id="password"
+                   required>
+            <h3><input type="checkbox" value="checked"><b>Remember</b></h3>
+            <input type="submit" value="Login" class="form-control btn btn-primary  " name="">
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1><p>You don't have an account? ☛ <a href="{{ url_for('register') }}">Register</a></p></h1>
+    </div>
+</div>
+</body>
+</html>

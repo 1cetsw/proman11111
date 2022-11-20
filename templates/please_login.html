@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <title>PLEASE LOGIN OR REGISTER</title>
+</head>
+<body class="center">
+<div class="center "><a href="/"><img alt="logo" src="/static/images/proman.png"
+                                      width="35%" height="35%"></a></div>
+<h1>Page available only for logged users
+    <br>
+    <br>
+    PLEASE LOGIN OR REGISTER
+    <br>
+    <a class="py-2 d-none d-md-inline-block" href="{{ url_for('login') }}"><i class="fas fa-home"></i> ☛ Login</a>
+    <a class="py-2 d-none d-md-inline-block" href="{{ url_for('register') }}"><i class="fas fa-home"></i> ☛ Register</a>
+</h1>
+
+<div class="center "><a href="/"><img alt="logo" src="https://i.ibb.co/8XVN8CW/trollface.png"
+                                      width="20%" height="20%"></a></div>
+
+</body>
+</html>

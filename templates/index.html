@@ -1,0 +1,13 @@
+{% extends 'base.html ' %}
+{#{% include 'login_panel.html' %}#}
+{% block content %}
+    {% if 'username' in session %}
+        <p>
+            <button type="button" class='btn btn-outline-light' data-toggle='modal' data-target='#newBoard'
+                    id="create_private_board" data-user-id="{{ session['id'] }}" name="new_board">Create Private Board
+            </button>
+        </p>
+    {% endif %}
+    <div id="root"></div>
+
+{% endblock %}

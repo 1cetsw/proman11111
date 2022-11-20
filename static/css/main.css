@@ -1,0 +1,166 @@
+#boards {
+    background-color: green;
+}
+
+.content {
+    margin: 4%
+}
+
+.modal-backdrop {
+    opacity: 20%;
+}
+
+:root{
+    --border-radius: 3px;
+    --status-1: rgba(255, 0, 0, 0.7);
+    --status-2: rgba(255, 106, 0, 0.67);
+    --status-3: rgba(198, 217, 1, 0.89);
+    --status-4: #1fe10a;
+}
+
+
+
+h1, .board-title, .board-column-title{
+    font-weight: 100;
+}
+
+h1{
+    text-align: center;
+    font-size: 4em;
+    letter-spacing: 5px;
+    transform: scale(1.2, 1);
+}
+
+button{
+    background: rgba(34, 34, 34, 0);
+    color: #f8f8f8;
+    border: none;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 4px 10px;
+}
+button-board{
+    background: rgba(34, 34, 34, 0);
+    color: #ff6a00;
+    border: none;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 4px 10px;
+}
+
+.board-container{
+    max-width: 960px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    border-radius: var(--border-radius);
+}
+
+section.board{
+    margin: 20px;
+    border: aliceblue;
+    background: #ffffff90;
+    border-radius: 3px;
+}
+
+.board-header{
+    height: 50px;
+    background: rgba(54, 54, 54, 0.8);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.board-title{
+    margin: 12px;
+    display: inline-block;
+    font-size: 21px;
+}
+.board-title, .board-add, .board-toggle{
+    display: inline-block;
+    color: #ff7200;
+}
+
+.board-toggle{
+    float: right;
+    margin: 13px;
+}
+
+.board-columns{
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+.board-column{
+    padding: 10px;
+    flex: 1;
+
+}
+
+.board-column-content{
+    min-height: 40px;
+    background-color: rgba(54, 54, 54, 0.43);
+}
+
+.board-column-content:empty{
+    /*This only works if the tag is really empty and there is not even whitespace inside*/
+    border: 4px solid #cdcdcd;
+    margin-top: 4px;
+    border-radius: 10px;
+    background: #eee;
+}
+
+.board-column-title{
+    text-align: center;
+}
+
+.card{
+    position: relative;
+    background: #222;
+    color: #fff;
+    border-radius: var(--border-radius);
+    margin: 4px 0;
+    padding: 4px;
+}
+/*todo*/
+.board-column:nth-of-type(1) .card{
+    background: var(--status-1);
+}
+/*test*/
+.board-column:nth-of-type(2) .card{
+    background: var(--status-2);
+}
+/*in progees*/
+.board-column:nth-of-type(3) .card{
+    background: var(--status-3);
+}
+/*end*/
+.board-column:nth-of-type(4) .card{
+    background: var(--status-4);
+}
+
+.card-remove{
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.card-title{
+    padding-right: 16px;
+}
+
+
+.modal-backdrop {
+    opacity: 20%;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.fas{
+    display: flex;
+    float:right;
+    left: 90%;
+}

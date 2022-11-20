@@ -1,0 +1,158 @@
+
+<nav class="NavMenu ">
+    <menu>
+        <h3 class="HelpSupport">
+            {% if 'username' in session %}
+                <h3>
+                    Welcome, {{ session.username }} :)
+                </h3>
+
+            {% endif %}
+        </h3>
+        <menuitem class="HelpSupport">
+            <a>User Panel</a>
+            <menu>
+                {% if 'username' not in session %}
+                    <menuitem><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
+                    </menuitem>
+                    <menuitem><a onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Register</a>
+                    </menuitem>
+                {% else %}
+                    <menuitem><a onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profile</a>
+                    </menuitem>
+                    <menuitem><a onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Logout</a>
+                    </menuitem>
+                {% endif %}
+            </menu>
+</nav>
+
+
+<div id="id01" class="modal1 ">
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+              title="Close Modal1">&times;</span>
+        <div class="center "><a href="/"><img alt="logo" src="/static/images/proman.png"
+                                              width="20%" height="20%"></a></div>
+    </div>
+    <div class="container">
+        <form class="form-group-head c" action="{{ url_for('login') }}" method="post">
+            <h3><label>Username</label></h3>
+            <input type="text" class="form-control" name="username" placeholder="Username" id="username" required>
+            <h3><label>Password</label></h3>
+            <input type="password" class="form-control" name="password" placeholder="Password" id="password"
+                   required>
+            <h3><input type="checkbox" value="checked"><b>Remember</b></h3>
+            <input type="submit" value="Login" class="form-control btn btn-primary  " name="">
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1><p>You don't have an account? ☛ <a href="{{ url_for('register') }}">Register</a></p></h1>
+    </div>
+</div>
+<div id="id02" class="modal1">
+
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+              title="Close Modal1">&times;</span>
+        <div class="center "><a href="/"><img alt="logo" src="/static/images/proman.png"
+                                              width="20%" height="20%"></a></div>
+    </div>
+    <div class="container center">
+        <h3>After logging out you will be redirected to the home page</h3>
+        <button><a class="btn btn-outline-light" href="{{ url_for('logout') }}">Logout</a></button>
+
+    </div>
+
+</div>
+<div id="id04" class="modal1 center ">
+    <div class="imgcontainer form-group-head c">
+        <span onclick="document.getElementById('id04').style.display='none'" class="close"
+              title="Close Modal1">&times;</span>
+
+    </div>
+    <div class="container">
+        <div class="row main">
+            <div class="main-login main-center">
+                <h1>Register New user</h1>
+                <form action="{{ url_for('register') }}" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <h3><label for="name" class="cols-sm-2 control-label">Your Name</label></h3>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="fullname" id="fullname"
+                                       placeholder="Enter your Name"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h3><label for="email" class="cols-sm-2 control-label">Your Email</label></h3>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email"
+                                       placeholder="Enter your Email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><label for="username" class="cols-sm-2 control-label">Username</label></h3>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="username"
+                                       placeholder="Enter your Username" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><label for="password" class="cols-sm-2 control-label">Password</label></h3>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" placeholder="Password"
+                                       id="password" required placeholder="Enter your Password"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <input type="submit" value="Register" class="form-control btn btn-primary " name="">
+                        <p style="padding:5px;">
+                            <a href="{{ url_for('login') }}" class="form-control btn btn-primary ">Login</a></p>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

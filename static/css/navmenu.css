@@ -1,0 +1,131 @@
+html, body{
+  padding:0px;
+  margin:0px;
+  font-family: 'Karla', sans-serif;
+  width:100vw;
+}
+body * {
+  margin:0;
+  padding:0;
+}
+
+.NavMenu menuitem {
+  position:relative;
+  display:block;
+  opacity:0;
+  cursor:pointer;
+  border-radius:30px;
+}
+
+.NavMenu menuitem > menu {
+  position: absolute;
+  pointer-events:none;
+  /*bottom: 100%; uncomment if you want the dropdown to be a dropup */
+}
+.NavMenu > menu {
+  display:flex;
+   float:right;
+  margin-right: 0.2em;
+  z-index: 999;
+
+}
+
+.NavMenu > menu > menuitem {
+  pointer-events: all;
+  opacity:1;
+}
+menu menuitem a {
+  white-space:nowrap;
+  display:block;
+}
+
+menuitem:hover > menu {
+  pointer-events:initial;
+
+}
+menuitem:hover > menu > menuitem,
+menu:hover > menuitem{
+  opacity:1;
+
+}
+.NavMenu > menu > menuitem menuitem menu {
+  transform:translateX(100%); /* -100 if float right */
+  top:0; left:0; /* change if float right or changed to a dropup */
+  border-radius:30px;
+
+}
+
+.NavMenu {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  border-radius:30px;
+
+}
+
+.NavMenu a {
+  background: white;
+  color:black;
+  min-width:190px;
+  transition: background 0.5s, color 0.5s, transform 0.5s;
+  margin:0px 6px 6px 0px;
+  padding:15px 40px;
+  box-sizing:border-box;
+  border-radius:3px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  position:relative;
+  border-radius: 30px;
+  text-decoration: none;
+
+}
+
+.NavMenu a:hover:before {
+  content: '';
+  top:0;left:0;
+  position:absolute;
+  background:rgba(0, 0, 0, 0.2);
+  width:100%;
+  height:100%;
+  border-radius:30px;
+  color:black;
+
+
+
+}
+
+
+.NavMenu > menu > menuitem > menu > menuitem{
+  transition: transform 0.6s, opacity 0.6s;
+  transform:translateY(150%); /* -150% change if a drop up */
+  opacity:0;
+  border-radius:30px;
+
+}
+.NavMenu > menu > menuitem:hover > menu > menuitem,
+.NavMenu > menu > menuitem.hover > menu > menuitem{
+  transform:translateY(0%);
+  opacity: 1;
+  border-radius:30px;
+
+}
+
+menuitem > menu > menuitem > menu > menuitem{
+  transition: transform 0.6s, opacity 0.6s;
+  transform:translateX(195px) translateY(0%); /* minus if float right */
+  opacity: 0;
+  border-radius:30px;
+
+}
+menuitem > menu > menuitem:hover > menu > menuitem,
+menuitem > menu > menuitem.hover > menu > menuitem{
+  transform:translateX(0) translateY(0%);
+  opacity: 1;
+  border-radius:30px;
+
+}
+
+.UserMenu > a{
+  background-color:#323130;
+  border-radius:30px;
+  font-weight:600;
+  color:white;
+}
